@@ -47,7 +47,7 @@ type Product {
 
 type ProductInventory {
   id: Int!
-  inventoryTag: String!
+  inventoryTag: String
   productId: Float!
   userId: Float!
   cost: Float!

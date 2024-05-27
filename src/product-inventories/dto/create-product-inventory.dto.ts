@@ -1,9 +1,8 @@
-import { InputType, Field } from '@nestjs/graphql';
+import { InputType, Field, Float } from '@nestjs/graphql';
 import {
   IsString,
   IsNumber,
   IsNotEmpty,
-  IsDecimal,
   Min,
 } from 'class-validator';
 
@@ -11,7 +10,6 @@ import {
 export class CreateProductInventoryDto {
   @Field()
   @IsString()
-  @IsNotEmpty()
   inventoryTag: string;
 
   @Field()
@@ -24,13 +22,13 @@ export class CreateProductInventoryDto {
   @IsNotEmpty()
   userId: number;
 
-  @Field()
-  @IsDecimal()
+  @Field(() => Float)
+  @IsNumber()
   @Min(0)
   cost: number;
 
-  @Field()
-  @IsDecimal()
+  @Field(() => Float)
+  @IsNumber()
   @Min(0)
   srp: number;
 

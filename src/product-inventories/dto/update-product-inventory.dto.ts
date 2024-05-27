@@ -2,7 +2,6 @@ import { InputType, Field, PartialType } from '@nestjs/graphql';
 import {
   IsString,
   IsNumber,
-  IsDecimal,
   IsOptional,
   Min,
 } from 'class-validator';
@@ -29,13 +28,13 @@ export class UpdateProductInventoryDto extends PartialType(
 
   @Field({ nullable: true })
   @IsOptional()
-  @IsDecimal()
+  @IsNumber()
   @Min(0)
   cost?: number;
 
   @Field({ nullable: true })
   @IsOptional()
-  @IsDecimal()
+  @IsNumber()
   @Min(0)
   srp?: number;
 

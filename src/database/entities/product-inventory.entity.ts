@@ -19,8 +19,8 @@ export class ProductInventory {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field({ nullable: false })
-  @Column({ name: 'inventory_tag' })
+  @Field({ nullable: true })
+  @Column({ name: 'inventory_tag', nullable: true, default: 'TAG' })
   inventoryTag: string;
 
   @Field({ nullable: false })
@@ -40,11 +40,11 @@ export class ProductInventory {
   user: User;
 
   @Field()
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column('decimal', { precision: 10, scale: 2, default: 0.0 })
   cost: number;
 
   @Field()
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column('decimal', { precision: 10, scale: 2, default: 0.0 })
   srp: number;
 
   @Field()
