@@ -13,6 +13,7 @@ export default setSeederFactory(User, async (faker) => {
   user.password = await hash('testpassword', 10);
   user.phone = faker.phone.number();
   user.avatar = faker.image.avatar();
+  user.department = faker.datatype.number({ min: 1, max: 5 });
   user.role = faker.helpers.arrayElement([
     UserRole.ADMIN,
     UserRole.SUPERVISOR,

@@ -85,10 +85,18 @@ export class User {
   @Column({
     type: 'varchar',
     length: 100,
+    nullable: false,
+    default: 0,
+  })
+  avatar: string;
+
+  @Field()
+  @Column({
+    type: 'int',
     nullable: true,
     default: null,
   })
-  avatar: string;
+  department: number;
 
   @Field((type) => UserRole)
   @Column({

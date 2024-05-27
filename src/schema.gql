@@ -11,6 +11,7 @@ type User {
   password: String!
   phone: String!
   avatar: String!
+  department: Float!
   role: UserRole!
   isActivated: Boolean!
   createdAt: DateTime!
@@ -30,7 +31,39 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Department {
+  id: Int!
+  name: String!
+}
+
+type Product {
+  id: Int!
+  productName: String!
+  barcode: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type ProductInventory {
+  id: Int!
+  inventoryTag: String!
+  productId: Float!
+  userId: Float!
+  cost: Float!
+  srp: Float!
+  quantity: Float!
+  category: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  deletedAt: DateTime!
+}
+
 type Query {
   users: [User!]!
   user(id: Int!): User
+  departments: [Department!]!
+  department(id: Int!): Department
+  products: [ProductInventory!]!
+  product(id: Int!): ProductInventory
 }

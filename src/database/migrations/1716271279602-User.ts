@@ -13,6 +13,7 @@ export class User1716271279602 implements MigrationInterface {
           password VARCHAR(255) NOT NULL,
           phone VARCHAR(50),
           avatar VARCHAR(100),
+          department INT NOT NULL,
           role user_role NOT NULL DEFAULT 'clerk',
           is_activated BOOLEAN NOT NULL DEFAULT TRUE,
           created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

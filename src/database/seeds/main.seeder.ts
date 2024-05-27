@@ -2,7 +2,13 @@ import { DataSource } from 'typeorm';
 import { runSeeders, Seeder, SeederFactoryManager } from 'typeorm-extension';
 import { AppDataSource } from '../../data-source';
 import userFactory from '../factories/user.factory';
+import productFactory from '../factories/product.factory';
+import productInventoryFactory from '../factories/product-inventory.factory';
+import departmentFactory from '../factories/department.factory';
 import UserSeeder from './user.seeder';
+import productSeeder from './product.seeder';
+import productInventorySeeder from './product-inventory.seeder';
+import departmentSeeder from './department.seeder';
 
 export default class MainSeeder implements Seeder {
   /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -11,8 +17,18 @@ export default class MainSeeder implements Seeder {
     factoryManager: SeederFactoryManager,
   ): Promise<any> {
     await runSeeders(dataSource, {
-      seeds: [UserSeeder],
-      factories: [userFactory],
+      seeds: [
+        UserSeeder,
+        productSeeder,
+        productInventorySeeder,
+        departmentSeeder,
+      ],
+      factories: [
+        userFactory,
+        productFactory,
+        productInventoryFactory,
+        departmentFactory,
+      ],
     });
   }
 }
